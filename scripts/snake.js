@@ -5,10 +5,13 @@ const numberOfTiles = height * width;
 const startButton = document.getElementById('startButton');
 const spawnFirstFood = 1;
 const foodlist = [];
+const growthRate = 3;
 
 let currentTile;
+let nextTile;
 let currentTileId;
 let allTiles = [];
+let snakeTiles = [];
 
 //-----------  functions  -------------------------------------------------------
 function CreateGameGrid(){
@@ -38,10 +41,12 @@ function CreateGameGrid(){
 
 function AddToSnake(tile){
     tile.classList.add("snakeTile");
+    snakeTiles.push(tile);
 }
 
 function RemoveFromSnake(tile){
     tile.classList.remove("snakeTile");
+    snakeTiles.shift(tile);
 }
 
 function MakeFoodTile(tile){
@@ -84,12 +89,23 @@ function SpawnFood(){
     MakeFoodTile(newFoodTile);
 }
 
+function IsFood(nextTile){ //checks whether or not the tile we're trying to go to is a food tile, returns TRUE or FALSE
+    return nextTile.classList.contains("foodTile");
+}
+
+function EatFoodAndSpawnMore(){ //spawns more food
+    SpawnFood();
+}
+
 
 //Event Handling
 document.addEventListener("keydown", function(e){
     if (e.key === "ArrowUp"){ //ArrowUp event handling
         nextTile = document.getElementById(parseInt(currentTile.id, 10) + 1)
         if (NextTileValid(nextTile)){
+            if (IsFood(nextTile)){
+                EatFoodAndSpawnMore();
+            }
             TurnTileOff(currentTile);
             RemoveFromSnake(currentTile);
             TurnTileOn(nextTile);
@@ -103,6 +119,9 @@ document.addEventListener("keydown", function(e){
     if (e.key === "ArrowDown"){ //ArrowDown event handling
         nextTile = document.getElementById(parseInt(currentTile.id, 10) - 1)
         if (NextTileValid(nextTile)){
+            if (IsFood(nextTile)){
+                EatFoodAndSpawnMore();
+            }
             TurnTileOff(currentTile);
             RemoveFromSnake(currentTile);
             TurnTileOn(nextTile);
@@ -117,6 +136,9 @@ document.addEventListener("keydown", function(e){
     if (e.key === "ArrowLeft"){ //ArrowLeft event handling
         nextTile = document.getElementById(parseInt(currentTile.id, 10) - 30)
         if (NextTileValid(nextTile)){
+            if (IsFood(nextTile)){
+                EatFoodAndSpawnMore();
+            }
             TurnTileOff(currentTile);
             RemoveFromSnake(currentTile);
             TurnTileOn(nextTile);
@@ -131,6 +153,9 @@ document.addEventListener("keydown", function(e){
     if (e.key === "ArrowRight"){ //ArrowRight event handling
         nextTile = document.getElementById(parseInt(currentTile.id, 10) + 30)
         if (NextTileValid(nextTile)){
+            if (IsFood(nextTile)){
+                EatFoodAndSpawnMore();
+            }
             TurnTileOff(currentTile);
             RemoveFromSnake(currentTile);
             TurnTileOn(nextTile);
