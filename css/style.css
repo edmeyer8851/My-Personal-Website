@@ -2,6 +2,10 @@ body {
     background: rgb(114, 114, 114);
 }
 
+#gamesContainer {
+    display: flex;
+}
+
 h1, 
 p {
     color: rgb(0, 0, 0);
@@ -24,14 +28,17 @@ button {
 }
 
 #gameTitle {
-    margin:auto;
-    text-align: center;
+    margin-left: 50px;
+    margin-right: 50px;
     font-size: 40px;
+    width: 800px;
+    text-align: center;
 }
 
 #gameBoard {
-    margin:auto;
     position: relative;
+    margin-left: 50px;
+    margin-right: 50px;
     height: 600px;
     width: 800px;
     background-color: black;
