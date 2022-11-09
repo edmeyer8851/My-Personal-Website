@@ -1,6 +1,6 @@
-const gameBoard = document.getElementById('gameBoard');
-const height = gameBoard.clientHeight/20;
-const width = gameBoard.clientWidth/20;
+const myGameBoard = document.getElementById('myGameBoard');
+const height = myGameBoard.clientHeight/20;
+const width = myGameBoard.clientWidth/20;
 const numberOfTiles = height * width;
 const startButton = document.getElementById('startButton');
 const spawnFirstFood = 1;
@@ -30,7 +30,7 @@ function CreateGameGrid(){
             tile.style.bottom = "0px"
             tile.style.left = "0px"
         }
-        gameBoard.append(tile); //adds each tile to the gameBoard <div>
+        myGameBoard.append(tile); //adds each tile to the myGameBoard <div>
         allTiles.push(tile); //adds each tile to the allTyles array as they're generated
 
         if (tile.style.bottom === "0px" || tile.style.bottom === "580px" || 
