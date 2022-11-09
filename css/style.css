@@ -4,43 +4,75 @@ body {
 
 #gamesContainer {
     display: flex;
+    flex-direction: row;
+    margin-left: auto;
+    margin-right: auto;
+    height: 900px;
 }
 
-h1, 
+.individualGames {
+    display: flex;
+    flex-direction: column;
+    margin-left: auto;
+    margin-right: auto;
+    width: 700px;
+    height: 900px;
+}
+
+.gameTitle {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 40px;
+    width: 700px;
+    height: 50px;
+    text-align: center;
+}
+
+.caption {
+    font-size: 40px;
+    width: 600px;
+    height: 50px;
+    margin-left: 50px;
+}
+
+#myGameBoard > div {
+    height: 20px;
+    width: 20px;
+    position: absolute;
+}
+
+h1 {
+    color: rgb(0, 0, 0);
+    font-size: large;
+} 
+
 p {
     color: rgb(0, 0, 0);
     font-size: large;
 }
 
-div > div{
-    height: 20px;
-    width: 20px;
-    position: absolute;
-    background-color:black;
+h1 + p {
+    color: rgb(0, 0, 0);
+    font-size: large;
+    margin-left: 50px;
 }
 
 button {
     position: relative;
     top: 170px;
-    left: 350px;
+    left: 250px;
     height: 60px;
     width: 100px;
 }
 
-#gameTitle {
-    margin-left: 50px;
-    margin-right: 50px;
-    font-size: 40px;
-    width: 800px;
-    text-align: center;
-}
-
 #myGameBoard {
     position: relative;
-    margin-left: 50px;
-    margin-right: 50px;
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
     height: 600px;
-    width: 800px;
+    width: 600px;
     background-color: black;
 }
 
@@ -54,4 +86,50 @@ button {
 
 .wallTile {
     background-color:rgb(72, 72, 72);
+}
+
+
+
+
+
+#body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+    background-color: rgb(114, 114, 114);
+}
+
+#game-board{
+    background-color: black;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    width: 600px;
+    height: 600px;
+    display: grid;  
+    grid-template-rows: repeat(21, 1fr);
+    grid-template-columns: repeat(21, 1fr);
+}
+
+#stats,
+#stats2 {
+    width:600px;
+    margin-left: auto;
+    margin-right: auto;
+    background:rgb(114, 114, 114); 
+    color: white;
+    display: flex;
+    font-size: x-large;
+    justify-content: center;
+}
+
+.snake {
+    background-color: white;
+    border: .25vmin solid black;
+}
+
+.food {
+    background-color: white;
+    border: .25vmin solid black;
 }

@@ -10,15 +10,48 @@
 <body>
     <h1>Hello World!</h1>
     <p>For my personal website project, I was inspired by the "Dodger" lab to try and re-code a classic browser game using HTML, CSS, and Javascript.</p>
-    <div id="gameTitle">
-        <p><strong>My solo attempt at re-coding snake:</strong></p>
-    </div>
-    <div id="gamesContainter">
-        <div id="myGameBoard">
-            <button id="startButton" type="button">Start Game</div>
-            <script src="./scripts/mySnakeAttempt.js"></script>
+    <div id="gamesContainer">
+        <div class="individualGames">
+            <div class="gameTitle">
+                <p><strong>My solo attempt at re-coding Snake:</strong></p>
+            </div>
+            <div id="myGameBoard">
+                <button id="startButton" type="button">Start Game</button>
+                <script src="./scripts/mySnakeAttempt.js"></script>
+            </div>
+            <div id="stats2" >pOiNtS:</div>
+            <div class="caption">
+                <p>Above was my first attempt at re-coding Snake, using nothing but weaponized Google search skills and 
+                    the basic HTML/CSS/Javascript knowledge I learned during this pre-course class.<br><br>
+                    As we can see, I never did figure out how to get the game to progress on it's own. It's controlled 
+                    with the <code> W A S D </code> keys, simply because I don't know how to have each game controlled 
+                    separately while using the same controls. The working game on the right is controlled with the arrow keys.</p>
+            </div>
+        </div>
+
+        <div class="individualGames">
+            <div class="gameTitle">
+                <p><strong>Working Snake game I made with a Youtube code-along:</strong></p>
+            </div>
+            <script src="./scripts/youtubeSnake.js" defer></script>
+            <div id="game-board" ></div>
+            <div id="stats" ></div>
+            <div class="caption">
+                <p>After hours upon hours trying to code the game myself, I soon realized that some of my earlier code was becoming 
+                    ridiculously complex to adjust in order to get a finished, working product.<br><br>I wanted to display 
+                    <strong>some</strong> working game on this page and more importantly, I was now very curious as to what other 
+                    solutions were out there for the same problems I had been trying to solve. I coded things a certain (less than ideal) 
+                    way during my attempt, but how would someone who actually knows what they're doing write this program?<br><br>
+                    I turned to my good friend Youtube, and found a <a href="https://www.youtube.com/watch?v=QTcIXok9wNY">How to code 
+                    the Snake game in Javascript</a> code-along video. I learned about a bunch of new concepts while following along with this 
+                    video: CSS grid, <code>requestAnimationFrame()</code> (this is how the game progresses 
+                    on it's own), and using Javascript modules to break code down into separate files.
+                </p>
+            </div>
         </div>
     </div>
+        
+    
     
 </body>
 </html>

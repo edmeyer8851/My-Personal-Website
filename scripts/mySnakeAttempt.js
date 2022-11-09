@@ -34,11 +34,18 @@ function CreateGameGrid(){
         allTiles.push(tile); //adds each tile to the allTyles array as they're generated
 
         if (tile.style.bottom === "0px" || tile.style.bottom === "580px" || 
-            tile.style.left === "0px" || tile.style.left === "780px"){
+            tile.style.left === "0px" || tile.style.left === "580px"){
                 CreateWall(tile);
             }
     }
 }
+
+//prevents arrow keys from scrolling the page
+window.addEventListener("keydown", function(e) {
+    if(["Space","ArrowUp","ArrowDown","ArrowLeft","ArrowRight"].indexOf(e.code) > -1) {
+        e.preventDefault();
+    }
+}, false);
 
 function AddToSnake(tile){
     tile.classList.add("snakeTile");
@@ -126,16 +133,16 @@ function EatFoodAndSpawnMore(){ //spawns more food
 
 function GetNextTileByDirection(e){
     switch (e.key) {
-        case "ArrowUp":
+        case "w":
             currentDirection = "Up";
             return nextTile = document.getElementById(parseInt(snakeHead.id, 10) + 1);
-        case "ArrowDown":
+        case "s":
             currentDirection = "Down";
             return nextTile = document.getElementById(parseInt(snakeHead.id, 10) - 1);
-        case "ArrowLeft":
+        case "a":
             currentDirection = "Left";
             return nextTile = document.getElementById(parseInt(snakeHead.id, 10) - 30);
-        case "ArrowRight":
+        case "d":
             currentDirection = "Right";
             return nextTile = document.getElementById(parseInt(snakeHead.id, 10) + 30);
     }
@@ -160,12 +167,13 @@ function Move(){
 //Event Handling
 document.addEventListener("keydown", function(e){
     nextTile = GetNextTileByDirection(e);
-    if (e.key === "ArrowUp" || e.key === "ArrowDown" || e.key === "ArrowLeft" || e.key === "ArrowRight"){ //ArrowUp event handling
+    if (e.key === "w" || e.key === "s" || e.key === "a" || e.key === "d"){ //ArrowUp event handling
         Move(nextTile);
     }
 })
 
 startButton.addEventListener("click", function(){
+    startButton.style.display = "none";
     StartGame();
     SpawnFood();
 });
